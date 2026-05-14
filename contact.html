@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Visit Panache Academy across 6 cities — Ahmedabad, Vadodara, Indore, Goa, Udaipur. Speak to an advisor or apply online." />
+  <title>Contact — Panache Academy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="images/panache-logo-01.svg" alt="Panache Academy" class="brand-img brand-img-dark" width="132" height="42" />
+        <img src="images/panache-logo-02.svg" alt="Panache Academy" class="brand-img brand-img-light" width="132" height="42" />
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="placements.html" class="nav-link">Placements</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="contact.html#apply" class="btn btn-primary btn-sm">Apply Now</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero hero-contact">
+    <div class="container">
+      <p class="eyebrow">CONTACT</p>
+      <h1 class="page-title">
+        Let's chart your <span class="gold">flight path.</span>
+      </h1>
+      <p class="page-sub">
+        Drop us a line, walk into any of our 6 campuses, or call us directly.
+        An advisor will respond within one working day.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FORM + APPLY ============ -->
+  <section class="contact-section" id="apply">
+    <div class="container contact-grid">
+
+      <!-- LEFT: form -->
+      <div class="form-wrap">
+        <div class="form-head">
+          <p class="eyebrow dark">START HERE</p>
+          <h2 class="section-title">Tell us a bit about you.</h2>
+          <p class="lede">No obligation. No spam. Just a real conversation with an advisor.</p>
+        </div>
+
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-name">Full name <span class="req">*</span></label>
+              <input type="text" id="f-name" name="name" autocomplete="name" required />
+              <span class="field-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="f-phone">Phone <span class="req">*</span></label>
+              <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="+91 9XXXX XXXXX" required />
+              <span class="field-error"></span>
+            </div>
+
+            <div class="field field-full">
+              <label for="f-email">Email <span class="req">*</span></label>
+              <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@example.com" required />
+              <span class="field-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="f-course">Course interest <span class="req">*</span></label>
+              <select id="f-course" name="course" required>
+                <option value="">Select a program</option>
+                <optgroup label="Certificate">
+                  <option value="PACCCT — Cabin Crew Training">Cabin Crew Training (PACCCT)</option>
+                  <option value="PACHM — Hotel Management">Hotel Management (PACHM)</option>
+                  <option value="PACAMGS — Airport & Ground Staff">Airport & Ground Staff (PACAMGS)</option>
+                  <option value="PACTTM — Travel & Tourism">Travel & Tourism (PACTTM)</option>
+                </optgroup>
+                <optgroup label="Diploma">
+                  <option value="PADATM — Aviation/Tourism/Hospitality Mgt">Diploma in Aviation/Tourism/Hospitality (PADATM)</option>
+                </optgroup>
+                <optgroup label="Degree">
+                  <option value="BBA — Airlines/Tourism/Hotel Mgt">BBA in Airlines/Tourism/Hotel Mgt</option>
+                  <option value="MBA — Airlines/Tourism/Hospitality Mgt">MBA in Airlines/Tourism/Hospitality Mgt</option>
+                </optgroup>
+                <optgroup label="Specialized">
+                  <option value="Cruise Ship Management">Cruise Ship Management</option>
+                  <option value="IATA Certification">IATA Certification</option>
+                  <option value="PAFCPG — Finishing Course">Finishing Course (PAFCPG)</option>
+                  <option value="Modeling & Ramp Training">Modeling & Ramp Training</option>
+                  <option value="BPO & Customer Service Training">BPO & Customer Service Training</option>
+                  <option value="Special Course for Home Makers">Special Course for Home Makers</option>
+                </optgroup>
+                <option value="Not sure yet">Not sure yet — help me decide</option>
+              </select>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="f-city">Preferred city <span class="req">*</span></label>
+              <select id="f-city" name="city" required>
+                <option value="">Select a campus</option>
+                <option value="Ahmedabad — Shyamal">Ahmedabad — Shyamal</option>
+                <option value="Ahmedabad — Nikol">Ahmedabad — Nikol</option>
+                <option value="Vadodara">Vadodara</option>
+                <option value="Indore">Indore</option>
+                <option value="Goa">Goa</option>
+                <option value="Udaipur">Udaipur</option>
+              </select>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="field field-full">
+              <label for="f-message">Message <span class="optional">(optional)</span></label>
+              <textarea id="f-message" name="message" rows="4" placeholder="Anything you'd like the advisor to know — current education, batch year, questions..."></textarea>
+              <span class="field-error"></span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg">Send Enquiry →</button>
+
+          <div class="form-success" role="status">
+            <strong>Got it.</strong> Your default mail app should open with your enquiry pre-filled. We respond within 1 working day.
+          </div>
+
+          <p class="form-fineprint">
+            By submitting you agree to be contacted by a Panache advisor. We never share your details.
+          </p>
+        </form>
+      </div>
+
+      <!-- RIGHT: quick contact rail -->
+      <aside class="contact-aside">
+        <div class="aside-card">
+          <p class="eyebrow dark">CALL DIRECTLY</p>
+          <a href="tel:+918460165656" class="aside-phone">+91 84601 65656</a>
+          <a href="tel:+917043775959" class="aside-phone secondary">+91 70437 75959</a>
+          <p class="aside-hours">Mon–Sat, 10:00 — 19:00 IST</p>
+        </div>
+
+        <div class="aside-card">
+          <p class="eyebrow dark">EMAIL US</p>
+          <a href="mailto:ahmedabad@panacheacademy.com" class="aside-mail">ahmedabad@panacheacademy.com</a>
+          <p class="aside-hours">Replies within 1 working day</p>
+        </div>
+
+        <div class="aside-card aside-card-whatsapp">
+          <div class="wa-head">
+            <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.437-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/>
+            </svg>
+            <p class="eyebrow">WHATSAPP</p>
+          </div>
+          <a href="https://wa.me/918460165656" target="_blank" rel="noopener" class="aside-phone">+91 84601 65656</a>
+          <p class="aside-hours">Fastest way to reach us</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ MAP PLACEHOLDER ============ -->
+  <section class="map-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow dark">CAMPUS NETWORK</p>
+          <h2 class="section-title">Six cities. One standard.</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?ll=22.5,76&amp;z=5&amp;output=embed"
+        title="Panache Academy 6 campuses across India"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+        class="map-frame"
+      ></iframe>
+      <div class="map-overlay" aria-hidden="true">
+        <div class="map-overlay-card">
+          <p class="map-overlay-eyebrow">CAMPUS NETWORK</p>
+          <ul class="map-cities-list">
+            <li><span class="reach-dot major"></span>Ahmedabad <em>(Shyamal &amp; Nikol)</em></li>
+            <li><span class="reach-dot"></span>Vadodara</li>
+            <li><span class="reach-dot"></span>Indore</li>
+            <li><span class="reach-dot"></span>Goa</li>
+            <li><span class="reach-dot"></span>Udaipur</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATIONS ============ -->
+  <section class="locations-section">
+    <div class="container">
+      <div class="locations-grid">
+
+        <article class="location-card">
+          <div class="location-head">
+            <span class="location-city">Ahmedabad</span>
+            <span class="location-area">Shyamal · HQ</span>
+          </div>
+          <p class="location-addr">
+            211/212, 2nd Floor, Shangrila Arcade,<br />
+            Shyamal Cross Roads, Prahalad Nagar Road,<br />
+            Ahmedabad — 380015
+          </p>
+          <div class="location-contact">
+            <a href="tel:+918460165656" class="loc-phone">+91 84601 65656</a>
+            <a href="tel:+917043775959" class="loc-phone">+91 70437 75959</a>
+            <a href="mailto:ahmedabad@panacheacademy.com" class="loc-mail">ahmedabad@panacheacademy.com</a>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-head">
+            <span class="location-city">Ahmedabad</span>
+            <span class="location-area">Nikol</span>
+          </div>
+          <p class="location-addr">
+            309/310, Akshar Arcade,<br />
+            Nr Devasya School, Shalby Hospital Lane,<br />
+            Nikol, Ahmedabad — 382350
+          </p>
+          <div class="location-contact">
+            <a href="tel:+917043776363" class="loc-phone">+91 70437 76363</a>
+            <a href="tel:+917600117058" class="loc-phone">+91 76001 17058</a>
+            <a href="mailto:ahmedabad@panacheacademy.com" class="loc-mail">ahmedabad@panacheacademy.com</a>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-head">
+            <span class="location-city">Vadodara</span>
+            <span class="location-area">Alkapuri</span>
+          </div>
+          <p class="location-addr">
+            Trisha Square 1, 4th Floor,<br />
+            Jetalpur Road, Alkapuri,<br />
+            Vadodara — 390007
+          </p>
+          <div class="location-contact">
+            <a href="tel:+917874395959" class="loc-phone">+91 78743 95959</a>
+            <a href="tel:+916352994731" class="loc-phone">+91 63529 94731</a>
+            <a href="mailto:vadodara@panacheacademy.com" class="loc-mail">vadodara@panacheacademy.com</a>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-head">
+            <span class="location-city">Indore</span>
+            <span class="location-area">South Tukoganj</span>
+          </div>
+          <p class="location-addr">
+            303-304, Manas Mayfair,<br />
+            8/5 South Tukoganj, Opp Nath Mandir,<br />
+            Indore, Madhya Pradesh — 452001
+          </p>
+          <div class="location-contact">
+            <a href="tel:+917490047171" class="loc-phone">+91 74900 47171</a>
+            <a href="tel:+917228806565" class="loc-phone">+91 72288 06565</a>
+            <a href="mailto:indore@panacheacademy.com" class="loc-mail">indore@panacheacademy.com</a>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-head">
+            <span class="location-city">Goa</span>
+            <span class="location-area">Panjim</span>
+          </div>
+          <p class="location-addr">
+            503/504/505, 5th Floor,<br />
+            Gera Imperium Star, Patto Plaza,<br />
+            Patto, Panjim, Goa — 403001
+          </p>
+          <div class="location-contact">
+            <a href="tel:+918956011937" class="loc-phone">+91 89560 11937</a>
+            <a href="tel:+918956011938" class="loc-phone">+91 89560 11938</a>
+            <a href="mailto:goa@panacheacademy.com" class="loc-mail">goa@panacheacademy.com</a>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-head">
+            <span class="location-city">Udaipur</span>
+            <span class="location-area">Hiran Magri</span>
+          </div>
+          <p class="location-addr">
+            Num 1, Guru Kripa Bhawan,<br />
+            Hiran Magri Main Road,<br />
+            Udaipur, Rajasthan — 313001
+          </p>
+          <div class="location-contact">
+            <a href="tel:+918511719575" class="loc-phone">+91 85117 19575</a>
+            <a href="tel:+918511671176" class="loc-phone">+91 85116 71176</a>
+            <a href="mailto:udaipur@panacheacademy.com" class="loc-mail">udaipur@panacheacademy.com</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BAND ============ -->
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Prefer a campus visit?</h2>
+        <p>Walk in any working day. Carry a recent photo and you can sit through a live class.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#apply" class="btn btn-primary">Book a Visit →</a>
+        <a href="tel:+918460165656" class="btn btn-ghost-dark">+91 84601 65656</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand brand-light">
+          <img src="images/panache-logo-01.svg" alt="Panache Academy" class="brand-img brand-img-dark" width="132" height="42" />
+          <img src="images/panache-logo-02.svg" alt="Panache Academy" class="brand-img brand-img-light" width="132" height="42" />
+        </a>
+        <p class="footer-tag">Where dreams take flight. India's premier academy for Aviation, Hospitality and Tourism.</p>
+        <div class="socials">
+          <a href="https://instagram.com/panacheacademyofficial" aria-label="Instagram" target="_blank" rel="noopener"><img src="logos/instagram.svg" alt="Instagram" /></a>
+          <a href="https://www.facebook.com/panacheacademyofficial" aria-label="Facebook" target="_blank" rel="noopener"><img src="logos/facebook.svg" alt="Facebook" /></a>
+          <a href="https://www.linkedin.com/company/panacheacademyindia/" aria-label="LinkedIn" target="_blank" rel="noopener"><img src="logos/linkedin.svg" alt="LinkedIn" /></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="placements.html">Placements</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Top Programs</h4>
+        <a href="courses.html">Cabin Crew Training</a>
+        <a href="courses.html">Hotel Management</a>
+        <a href="courses.html">Airport & Ground Staff</a>
+        <a href="courses.html">Travel & Tourism</a>
+        <a href="courses.html">BBA / MBA</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Headquarters</h4>
+        <p class="footer-addr">
+          211/212, 2nd Floor, Shangrila Arcade,<br />
+          Shyamal Cross Roads, Prahalad Nagar Rd,<br />
+          Ahmedabad 380015
+        </p>
+        <a href="tel:+918460165656" class="footer-phone">+91 84601 65656</a>
+        <a href="mailto:ahmedabad@panacheacademy.com" class="footer-mail">ahmedabad@panacheacademy.com</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <span>© 2026 Panache Academy. ISO 9001:2015 Certified · Grade A by CIAC.</span>
+      <span>Crafted with intent.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

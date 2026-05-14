@@ -1,0 +1,18 @@
+# Editor / IDE
+.claude/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies (none in this project, but future-proof)
+node_modules/
+.cache/
+
+# Logs
+*.log
