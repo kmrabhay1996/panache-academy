@@ -244,3 +244,48 @@ All 5 pages built. All scraped content used verbatim where possible. All metrics
     - `.story-badge` already had its bg upped and color set to navy
   - All elements where yellow appears on dark navy backgrounds (hero, KPI band, eyebrows in dark sections, partner ribbons, footer headings) kept as brand yellow — high contrast and on-brand.
   - DOM-verified: course-tag now navy(11,30,63) on yellow tint(253,201,0,0.22) ✓ readable. Story-role gold-deep(200,157,0) on white ✓ readable.
+
+- **2026-05-15 — Logo sizing rounds.** Partner logos vary wildly in aspect ratio (square Emirates SVG with built-in white padding vs. wide Kuoni wordmark at 5.22:1). Tuned per-logo heights using `img[src*="brand"]` attribute selectors. Final marquee sizes (after several iterations): Emirates/Jet Airways 72×72 (heavy SVG padding), Malaysia/GoAir/Baywatch/Taj 92×92, Marriott 48×61, ITC/Cox & Kings 44px, VFS Global 60×170, wide wordmarks 36px default. Marquee chip itself enlarged from 72→100px tall to host the bigger square logos. Default wide-logo height 36→44 so it stays in proportion to the taller chip.
+
+- **2026-05-15 — Footer socials swap.** User dropped Facebook/Instagram/LinkedIn SVGs into `logos/`. Renamed to lowercase slugs. Replaced text initials (IG/FB/X/IN) with `<img>` tags across all 5 footer instances. **Removed X (Twitter)** link entirely. Corrected URLs: Facebook → `facebook.com/panacheacademyofficial`; LinkedIn → `linkedin.com/company/panacheacademyindia/`. CSS evolution: first tried white-tile containers (looked forced) → user requested transparent with white-rendered icons via `filter: brightness(0) invert(1)`, brand color revealed on hover.
+
+- **2026-05-15 — Story-card redesign (placements page).** Three sequential iterations driven by user feedback:
+  1. First swap: text-label airline headers ("QATAR AIRWAYS", "EMIRATES", etc.) → `<img>` tags. Logos on top of colored gradient bands (Qatar maroon, Emirates red, IndiGo navy, etc.) with `filter: brightness(0) invert(1)` to render white.
+  2. Second iteration: removed the colored gradient bands. Logo became absolutely-positioned in the top-right corner of the white card (`top: 20px; right: 20px;`). Filter removed so logos show their native brand colors. Body padding-top bumped to 64px to host the corner logo without overlap.
+  3. Third iteration: avatar circles (AV/DR/HB/JM/KK/PM) deleted as redundant. Body padding-top corrected to 94px (to preserve the card height since the avatar previously occupied that vertical space).
+  4. Final per-logo overrides on `.story-airline img`: Qatar 80×28, Emirates 68×68, **Jet Airways 110×110** (heaviest SVG padding of the group), GoAir 60×60, IndiGo 80×22.
+  5. CSS specificity fix mid-edit: discovered `.story-body { padding: 24px 22px 22px; }` was defined AFTER my override and silently winning the cascade. Edited the original rule directly to use `94px 22px 22px`.
+
+- **2026-05-15 — Sector cards reverted.** User flipped the previous decision: placements page sector cards (Aviation/Hotels/Travel & Tourism) reverted from logo images back to text-name `.brand-chip` pills. Counts unchanged (9/8/3). Homepage marquee retained the logos.
+
+- **2026-05-15 — Accreditation card alignment fix (about page).** Three cards had different content heights so the status pills (Certified / Grade A / Accredited) sat at different vertical positions. Fix: `.accred-card` became `display: flex; flex-direction: column;` with `height: 100%`, `.accred-grid { align-items: stretch }`, and `.accred-status { margin-top: auto }`. All three pills now bottom-aligned at the same Y.
+
+- **2026-05-15 — Milestone scroll animations (about page timeline).** User asked for "more animation" on milestones. Added: `.reveal` class with `translateX(-28px) → 0` slide-in plus stagger (0.10s per item via `:nth-child()` transition-delays), `dot-pop` keyframe scaling the dot from 0.4→1.25→1.0 on reveal, continuous `timeline-now-pulse` keyframe on the "Today" dot. JS already had reveal observer from earlier work. `prefers-reduced-motion` respected.
+
+- **2026-05-15 — Process-steps infographic (placements page).** "Four steps. One job offer." section redesigned from plain cards into a flow-line infographic. Each step now has: 112×112 navy circular hub with a cream double-ring (`box-shadow: 0 0 0 6px cream, 0 0 0 7px rgba(gold,0.35)`), 48×48 SVG icon inside (graduation cap → microphone → handshake → heart), 40×40 gold step-number badge absolutely positioned in the top-right of the hub with a cream border, dashed gold horizontal flow line connecting all hubs (rendered as `background-image: linear-gradient(90deg, gold 50%, transparent 50%)` with `background-size: 12px 2px` and repeat). Hover: hub scales 1.07x and outer ring fills solid gold.
+
+- **2026-05-15 — Modern dark map style + unified map UI.** User flagged Google Maps default style as "old school". Applied CSS `filter: invert(0.92) hue-rotate(200deg) saturate(0.55) brightness(0.96) contrast(1.05)` to all `.map-frame` iframes — converts the pastel-blue Google look into a dark navy modern style (Mapbox-dark-theme aesthetic) without needing an API key or custom tile server. Contact map URL widened from `q=Panache+Academy+Ahmedabad&z=11` to `ll=22.5,76&z=5` so all 6 campuses are visible. Both maps (contact + placements) now share the same component: dark-filtered iframe + floating `.map-overlay-card` (rgba(11,30,63,0.86) blurred panel, gold border, eyebrow + city list with gold dots) in the top-left.
+
+- **2026-05-15 — Custom animated cursor.** Built into `js/main.js` as section 9. Two-element implementation: instant white dot following the mouse, gradient ring trailing via requestAnimationFrame easing (0.32 factor). Final design after iterations: ring removed (`display: none`), dot is **9×9 white with drop shadow** (`0 2px 8px rgba(0,0,0,0.28)` + 1px hairline outline) for cross-bg visibility. Hover scale → 14×14 with stronger shadow. Critical bugfix: removed `transform .2s` from cursor-dot's CSS transition — it was tweening every mouse update over 200ms, causing perceived lag. Transform now applies instantly via JS-set inline style. `cursor-hover` class triggers `opacity: 0` on the dot when over interactive elements so the native pointer/hand/I-beam shows alone. Hoverables list (`a, button, input, select, textarea, [contenteditable], .filter-chip, .course-card, .course-card-full, .story-card, .accred-card, .why-card, .mv-card, .location-card, .process-step, .testimonial-dots button, .nav-toggle, .brand-chip`). `body.has-custom-cursor` applies `cursor: none` to plain page areas, but `cursor: pointer/text` is explicitly restored on interactive/input elements so the native cursor coexists cleanly. Respects `(pointer: coarse)` and `(prefers-reduced-motion: reduce)` — disables on touch + reduced-motion.
+
+- **2026-05-15 — ClickSpark integration.** Ported the React Bits ClickSpark component to vanilla JS (no React in this project). Section 10 of `main.js`. Full-viewport `<canvas class="click-spark-canvas">` fixed-positioned at z-index 10000 with `pointer-events: none` so it overlays everything without blocking clicks. DPR-aware sizing (`ctx.scale(dpr, dpr)` after `setTransform(1,0,0,1,0,0)` to avoid scale stacking). Debounced 80ms resize. On every document click: spawns N sparks (default 10) radially around the click position; each spark animates outward (distance = `easeOutQuad(elapsed/duration) * sparkRadius`) with shrinking line length, drawn as 2px round-capped strokes in brand yellow (`#FDC900`). Auto-cleanup once elapsed ≥ duration. Gentle alpha fade (`1 - eased * 0.4`) for premium feel. Config exposed at `window.__clickSpark.cfg` for runtime tweaking from console.
+
+- **2026-05-15 — Final pre-deploy audit.** All checks green: 5 HTML pages, 7 unique internal hrefs all resolve, 26 HTML `<img>` srcs resolve, 15 CSS `url()` references resolve, CSS braces balanced (553 opens / 553 closes), `node --check js/main.js` passes with no syntax errors, active nav class correct on all 5 pages, contact form has all 6 expected fields (name/phone/email/course/city/message), zero TODO/FIXME/Lorem Ipsum/placeholder leftovers (the one "placeholder" match is a legitimate `<input placeholder="+91 9XXXX XXXXX">`).
+
+- **2026-05-15 — GitHub Pages deploy.**
+  - `.gitignore` added excluding `.claude/`, `.vscode/`, `.idea/`, `*.swp/swo`, `.DS_Store`, `Thumbs.db`, `desktop.ini`, `node_modules/`, `.cache/`, `*.log`
+  - `git init -b main` → staged all 51 tracked files → initial commit `"Initial site — Panache Academy pitch redesign"` (committed with placeholder author since `user.email/name` not configured globally — used `-c user.email/name` inline for the commit only)
+  - Remote: `https://github.com/kmrabhay1996/panache-academy.git`
+  - Pushed `main` → upstream tracking set
+  - GitHub Pages enabled by user: Source = "Deploy from a branch", Branch = `main`, folder `/ (root)`
+  - **Live URL: `https://kmrabhay1996.github.io/panache-academy/`**
+
+## Future-edit workflow
+
+From `D:\Panache Website\` run:
+```
+git add .
+git commit -m "your message"
+git push
+```
+GitHub Pages auto-rebuilds in ~30-60 seconds. No local build step needed (pure HTML/CSS/JS).
